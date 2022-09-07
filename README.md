@@ -1,5 +1,6 @@
 
 # KIVY PARA INTERFAZ GRAFICA DE VOTACIONES
+https://www.youtube.com/watch?v=jF6CJCTKj7w
 # sac_iot
 
 ## CONFIGURACIÓN DEL ENTORNO KIVY
