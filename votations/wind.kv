@@ -1,0 +1,69 @@
+WindowManager:
+	Bienvenido:
+	IniciaProceso:
+	ElegirCandidato:
+	ConfirmarVoto:
+
+
+<Bienvenido>:
+	name: "first"
+
+	BoxLayout:
+		orientation: "vertical"
+		size: root.width, root.height
+
+		Label:
+			text: "Bienvenidos al sistema de votaciones SAC IoT"
+			font_size: 32
+
+		Button:
+			text: "ENTRAR AL SISTEMA"
+			font_size: 32
+			on_release: 
+				app.root.current = "second"
+				root.manager.transition.direction = "left"
+
+
+<IniciaProceso>:
+	name: "second"
+
+	BoxLayout:
+		orientation: "vertical"
+		size: root.width, root.height
+
+		Label:
+			text: "Estamos verificando su identidad..."
+			font_size: 32
+
+		Button:
+			text: "CONFIRMADO"
+			font_size: 32
+			on_release: 
+				app.root.current = "third"
+				root.manager.transition.direction = "left"
+
+
+<ElegirCandidato>:
+	name: "third"
+
+	BoxLayout:
+		orientation: "vertical"
+		size: root.width, root.height
+
+		Label:
+			text: "Esta es la lista de candidatos opcionados"
+			font_size: 32
+
+		Button:
+			text: "CANDIDATO1"
+			font_size: 32
+			
+		Button:
+			text: "CANDIDATO2"
+			font_size: 32
+			
+		Button:
+			text: "CANDIDATO3"
+			font_size: 32
+
+
