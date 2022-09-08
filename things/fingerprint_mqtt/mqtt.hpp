@@ -1,4 +1,4 @@
-const char* MQTT_BROKER_ADRESS = "192.168.25.54";
+const char* MQTT_BROKER_ADRESS = "192.168.0.106";
 const uint16_t MQTT_PORT = 1883;
 const char* MQTT_CLIENT_NAME = "ESPClient_1";
 
@@ -9,13 +9,16 @@ const char* DEVICE_ID = "0";
 
 extern bool read_fp;
 
+extern int light;
+
+
 WiFiClient espClient;
 PubSubClient mqttClient(espClient);
 
 void SuscribeMqtt()
 {
   Serial.print("subscribed");
-  mqttClient.subscribe("voting/enableVoting");
+  mqttClient.subscribe("voting/enable");
   mqttClient.subscribe("voting/alert");
 }
 
@@ -45,12 +48,20 @@ void OnMqttReceived(char* topic, byte* payload, unsigned int length)
    }
    Serial.print(content);
    Serial.println();
-  if(strcmp(topic, "voting/enableVoting")==0){
-    if((char)payload[0] == '1') {
+  if(strcmp(topic, "voting/enable")==0){
+    if((char)payload[0] == '0') {
       read_fp=true;
    }
-   else if ((char)payload[0] == '0') {
+   else if ((char)payload[0] == '1') {
       read_fp=false;
+   }  
+  }
+  if(strcmp(topic, "voting/alert")==0){
+    if((char)payload[0] == '0') {
+      light=1;
+   }
+   else if ((char)payload[0] == '1') {
+      light=0;
    }  
   }
 

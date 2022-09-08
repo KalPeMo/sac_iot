@@ -1,6 +1,6 @@
-const char* ssid     = "WIFI-LIS";
+const char* ssid     = "Colwifi_AMontoya";
 const char* password = "";
-const char* hostname = "ESP32_1";
+const char* hostname = "ESP32_fp";
 
 IPAddress ip(192, 168, 0, 112);
 IPAddress gateway(192, 168, 0, 1);

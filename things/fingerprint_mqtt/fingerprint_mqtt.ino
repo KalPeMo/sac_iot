@@ -46,6 +46,9 @@ Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 
 bool read_fp = false;
 
+int lightPin = 13;
+int light = 0;
+
 int unknowncount = 0;
 
 void setup()
@@ -53,6 +56,7 @@ void setup()
   ConnectWiFi_STA(false);
   InitMqtt();
   Serial.begin(9600);
+  pinMode(lightPin, OUTPUT);
   while (!Serial);  // For Yun/Leo/Micro/Zero/...
   delay(100);
   Serial.println("\n\nAdafruit finger detect test");
@@ -94,6 +98,7 @@ void loop()                     // run over and over again
   if(read_fp){
     getFingerprintID();
   }
+  digitalWrite(lightPin, light);
   
   delay(50);            //don't ned to run this at full speed.
 }
