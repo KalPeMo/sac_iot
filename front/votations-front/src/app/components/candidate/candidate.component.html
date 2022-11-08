@@ -1,0 +1,9 @@
+<p-card styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+        <div class="text-lg p-1">
+            {{candidate?.firstName}} {{candidate?.lastName}}
+        </div>
+        
+    </ng-template>
+    {{candidate?.documentType}}: {{candidate?.document | hideDocument}}
+</p-card>

@@ -1,0 +1,18 @@
+<body class="p-0 m-0 h-full">
+  <div class="grid grid-nogutter  h-full" *ngIf="campaign">
+    <div class="col-3 ">
+      <app-vote-counter [finishDateString]="campaign.endDate"></app-vote-counter>
+    </div>
+    <div class="col-9" style="max-height: 100vh; overflow-y: scroll; overflow-x: hidden;">
+      <div class="grid p-4" >
+        <div class="col-4" *ngFor="let candidate of candidates">
+          <app-candidate [candidate]="candidate"></app-candidate>
+        </div>
+      </div>
+      <div *ngIf="candidates.length>0 && totalVotes.length>0">
+        <app-votes-chart [candidates]="candidates" [totalVotes]="totalVotes" [endDateString]="'2022-11-07 18:18:18'"></app-votes-chart>
+      </div>
+    </div>
+  </div>
+
+</body>

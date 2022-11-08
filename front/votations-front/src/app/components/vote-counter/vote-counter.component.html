@@ -1,0 +1,22 @@
+<div class="h-full bg-blue-300 text-center vertical-align-middle flex">
+    <div style="margin: auto;">
+        <div class="block blue-block">
+            <span>
+                Votos totales:
+            </span>
+            <br>
+            <span>
+                {{totalVotes}}
+            </span>
+        </div>
+        <div id="timer">
+            <span>Las votaciones cierran en:</span>
+            
+            <div class="blue-block">{{ time.days }} <span>Días</span></div>
+            <div class="blue-block">{{ time.hours }} <span>Horas</span></div>
+            <div class="blue-block">{{ time.minutes }} <span>Minutos</span></div>
+            <div class="blue-block">{{ time.seconds }} <span>Segundos</span></div>
+        </div>
+    </div>
+
+</div>
